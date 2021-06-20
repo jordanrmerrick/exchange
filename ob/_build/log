@@ -1,0 +1,162 @@
+# dune exec ./book.exe
+# OCAMLPARAM: unset
+# Workspace root: /Users/jmerrick/pg/ocaml/exchange/ob
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/g0/hj3pb3fx391b5yyq6d55yj3w0000gn/T/dune034586.output 2> /dev/null
+# Auto-detected concurrency: 8
+# disable binary cache
+$ /usr/local/bin/ocamlc.opt -config > /var/folders/g0/hj3pb3fx391b5yyq6d55yj3w0000gn/T/dune943b6b.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = Some External "/Users/jmerrick/.opam/default/lib/toplevel"
+#  ; ocaml_bin = External "/usr/local/bin"
+#  ; ocaml = Ok External "/Users/jmerrick/.opam/default/bin/ocaml"
+#  ; ocamlc = External "/usr/local/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/usr/local/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/usr/local/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/usr/local/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/Users/jmerrick/pg/ocaml/exchange/ob/_build/default"
+#        ; "MANPATH" :
+#            "/Users/jmerrick/pg/ocaml/exchange/ob/_build/install/default/bin"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/jmerrick/pg/ocaml/exchange/ob/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/jmerrick/pg/ocaml/exchange/ob/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/jmerrick/pg/ocaml/exchange/ob/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_path = [ External "/Users/jmerrick/.opam/default/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.10.0"
+#      ; standard_library_default = "/usr/local/lib/ocaml"
+#      ; standard_library = "/usr/local/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "clang"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; bytecomp_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; cc_profile = []
+#      ; architecture = "amd64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-arch"; "x86_64"; "-Wno-trigraphs"; "-c" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "x86_64-apple-darwin19.5.0"
+#      ; target = "x86_64-apple-darwin19.5.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X027"
+#      ; cmi_magic_number = "Caml1999I027"
+#      ; cmo_magic_number = "Caml1999O027"
+#      ; cma_magic_number = "Caml1999A027"
+#      ; cmx_magic_number = "Caml1999Y027"
+#      ; cmxa_magic_number = "Caml1999Z027"
+#      ; ast_impl_magic_number = "Caml1999M027"
+#      ; ast_intf_magic_number = "Caml1999N027"
+#      ; cmxs_magic_number = "Caml1999D027"
+#      ; cmt_magic_number = "Caml1999T027"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+# Workspace root: /Users/jmerrick/pg/ocaml/exchange/ob
+$ (cd _build/default && /usr/local/bin/ocamldep.opt -modules -impl book.ml) > _build/default/.book.eobjs/book.ml.d
+$ (cd _build/default && /usr/local/bin/ocamldep.opt -modules -intf dll.mli) > _build/default/.book.eobjs/dll.mli.d
+$ (cd _build/default && /usr/local/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -bin-annot -I .book.eobjs/byte -no-alias-deps -opaque -o .book.eobjs/byte/dune__exe.cmo -c -impl .book.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /usr/local/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .book.eobjs/byte -no-alias-deps -opaque -open Dune__exe -o .book.eobjs/byte/dune__exe__Dll.cmi -c -intf dll.mli)
+$ (cd _build/default && /usr/local/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I .book.eobjs/byte -no-alias-deps -opaque -open Dune__exe -o .book.eobjs/byte/dune__exe__Book.cmo -c -impl book.ml)
+> File "book.ml", line 15, characters 11-16:
+> 15 |   type t = Dll.t
+>                 ^^^^^
+> Error: Unbound type constructor Dll.t
+[2]
+$ (cd _build/default && /usr/local/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -49 -nopervasives -nostdlib -g -I .book.eobjs/byte -I .book.eobjs/native -intf-suffix .ml-gen -no-alias-deps -opaque -o .book.eobjs/native/dune__exe.cmx -c -impl .book.eobjs/dune__exe.ml-gen)
+$ (cd _build/default && /usr/local/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I .book.eobjs/byte -I .book.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -open Dune__exe -o .book.eobjs/native/dune__exe__Dll.cmx -c -impl dll.ml)
+> File "dll.ml", line 6, characters 2-23:
+> 6 |   val length : t -> int
+>       ^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 32): unused value length.
+> File "dll.ml", line 8, characters 2-32:
+> 8 |   val incr : t -> by:int -> unit
+>       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 32): unused value incr.
+> File "dll.ml", line 53, characters 6-12:
+> 53 |   let append ~tail t = 
+>            ^^^^^^
+> Error (warning 32): unused value append.
+> File "dll.ml", line 57, characters 6-10:
+> 57 |   let push ~list node = 
+>            ^^^^
+> Error (warning 32): unused value push.
+> File "dll.ml", line 61, characters 6-9:
+> 61 |   let pop list = 
+>            ^^^
+> Error (warning 32): unused value pop.
+> File "dll.ml", line 25, characters 2-25:
+> 25 |   val create : 'a -> 'a t
+>        ^^^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 32): unused value create.
+> File "dll.ml", line 27, characters 2-37:
+> 27 |   val set_next : 'a t -> 'a t -> unit
+>        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 32): unused value set_next.
+> File "dll.ml", line 28, characters 2-37:
+> 28 |   val set_prev : 'a t -> 'a t -> unit
+>        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 32): unused value set_prev.
+> File "dll.ml", line 29, characters 2-43:
+> 29 |   val set_header : 'a t -> Header.t -> unit
+>        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 32): unused value set_header.
+> File "dll.ml", line 68, characters 0-21:
+> 68 | type 'a t = 'a Node.t
+>      ^^^^^^^^^^^^^^^^^^^^^
+> Error (warning 34): unused type t.
+[2]

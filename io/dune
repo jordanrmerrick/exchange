@@ -1,0 +1,4 @@
+(executable
+ (name io)
+ (libraries postgresql)
+)
