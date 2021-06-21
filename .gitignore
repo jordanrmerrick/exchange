@@ -1,1 +1,5 @@
 exchange.code-workspace
+_build
+ob/_build
+io/_build
+.vscode
