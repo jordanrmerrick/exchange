@@ -1,8 +1,0 @@
-(** @canonical Dune__exe.Book *)
-module Book = Dune__exe__Book
-
-(** @canonical Dune__exe.Dll *)
-module Dll = Dune__exe__Dll
-
-(** @canonical Dune__exe.Tree *)
-module Tree = Dune__exe__Tree
