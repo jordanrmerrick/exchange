@@ -28,6 +28,13 @@ module Node : sig
   val set_prev : 'a t -> 'a t -> unit
   val set_header : 'a t -> Header.t -> unit
 
+  val get_next : 'a t -> 'a t option
+  val get_prev : 'a t -> 'a t option
+  val get_value : 'a t -> 'a
+  val get_header : 'a t -> Header.t
+
+  val push : list:'a t -> 'a t -> unit
+  val pop : 'a t -> unit
 
 end = struct
 
@@ -41,6 +48,11 @@ end = struct
   let create_aux value header = { value; next=None; prev=None; header}
   let create value = create_aux value (Header.create ())
 
+  let get_value t = t.value
+  let get_next t = t.next
+  let get_prev t = t.prev
+  let get_header t = t.header
+
   let set_next t t' = 
     t.next <- Some t'
 
@@ -49,10 +61,6 @@ end = struct
 
   let set_header t h = 
     t.header <- h
-
-  let append ~tail t = 
-    set_next tail t;
-    set_prev t tail
 
   let push ~list node = 
     set_next node list;
@@ -67,3 +75,4 @@ end
 
 type 'a t = 'a Node.t
 
+let length t = t |> Node.get_header |> Header.length
