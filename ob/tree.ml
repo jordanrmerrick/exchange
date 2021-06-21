@@ -1,7 +1,7 @@
 type 'a t = 
   | Leaf
   | Node of { left : 'a t; value : 'a; right : 'a t }
-  
+
 let rec insert v ~equals = function
   | Leaf -> Node {left = Leaf; value = v; right = Leaf }
   | Node {left; value; right} -> 
@@ -13,7 +13,8 @@ let rec insert v ~equals = function
       else Node
       { left
       ; value
-      ; right = insert v ~equals right}
+      ; right = insert v ~equals right
+      }
 
 let of_array arr ~equals = 
   let rec aux acc arr i = 
@@ -39,8 +40,9 @@ let rec iter ~f = function
 
 let rec map ~f = function
   | Leaf -> Leaf
-  | Node {left; value; right} -> Node 
-    {left = map ~f left
+  | Node {left; value; right} -> 
+    Node 
+    { left = map ~f left
     ; value = f value
     ; right = map ~f right
     }
@@ -49,3 +51,13 @@ let rec exists t ~f =
   match t with
   | Leaf -> false
   | Node {left; value; right} -> f value || exists left ~f || exists right ~f
+
+let get_value t = 
+  match t with
+  | Leaf -> None
+  | Node { value; _ } -> Some value
+
+let get_value_exn t = 
+  match t with
+  | Leaf -> failwith "No value found"
+  | Node { value; _ } -> value

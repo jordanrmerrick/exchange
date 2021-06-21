@@ -17,6 +17,9 @@ end
 module Book (X : BuySell) : sig
   type order and limit
 
-  val remove_order : order Node.t -> unit
-  val add_order    : new_order:order Node.t -> order Node.t -> unit
+  val change_first_order : limit -> order Node.t -> unit
+  val change_last_order : limit -> order Node.t -> unit
+
+  val remove_order : 'a Node.t -> unit
+  val add_order : new_order:order Node.t -> order Node.t -> unit
 end

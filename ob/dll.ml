@@ -39,7 +39,7 @@ module Node : sig
 end = struct
 
   type 'a t =
-  { value          : 'a
+  { mutable value          : 'a
   ; mutable next   : 'a t option
   ; mutable prev   : 'a t option
   ; mutable header : Header.t

@@ -40,17 +40,31 @@ module Book (X : BuySell) = struct
 
   and limit = 
   { price : Price.t
-  ; mutable first_order : order
-  ; mutable last_order  : order
+  ; mutable first_order : order Node.t
+  ; mutable last_order  : order Node.t
   ; mutable num_orders  : int
   }
+
+  let change_first_order limit new_order = 
+    limit.first_order <- new_order
+
+  let change_last_order limit last_order = 
+    limit.last_order <- last_order
 
   let remove_order orders = 
     Dll.Node.pop orders
     (* TODO: change last_order in limit type *)
 
-  let add_order ~new_order orders = 
+  let add_order ~new_order (orders : order Node.t) = 
     Dll.Node.push ~list:orders new_order;
     (* TODO: change first_order in limit type *)
+    (* Using Tree.get_value_exn because there's no condition in which *)
+    (* the parent node is a leaf *)
+    Node.get_value orders 
+    |> (fun x -> 
+        change_first_order 
+        (Tree.get_value_exn x.parent_node)
+        new_order
+       )
 
 end

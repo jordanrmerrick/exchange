@@ -11,3 +11,6 @@ val iter : f:('a -> unit) -> 'a t -> unit
 val map : f:('a -> 'b) -> 'a t -> 'b t
 
 val exists : 'a t -> f:('a -> bool) -> bool
+
+val get_value : 'a t -> 'a option
+val get_value_exn : 'a t -> 'a
